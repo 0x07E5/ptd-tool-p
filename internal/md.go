@@ -26,13 +26,9 @@ func decrypt(inBytes []byte) ([]byte, error) {
 }
 
 func LoadMDFromFile(file *os.File, config *MDLoaderConfig) ([]map[string]interface{}, error) {
-	inMDBytes, err := ioutil.ReadAll(file)
+	compressedMDBytes, err := ioutil.ReadAll(file)
 	if err != nil {
 		return nil, errors.Wrap(err, "Failed to read input file")
-	}
-	compressedMDBytes, err := decrypt(inMDBytes)
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to decrypt input file")
 	}
 
 	buf := bytes.NewBuffer(compressedMDBytes)
