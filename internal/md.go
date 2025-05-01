@@ -26,18 +26,19 @@ func decrypt(inBytes []byte) ([]byte, error) {
 }
 
 func LoadMDFromFile(file *os.File, config *MDLoaderConfig) ([]map[string]interface{}, error) {
-	compressedMDBytes, err := ioutil.ReadAll(file)
-	if err != nil {
-		return nil, errors.Wrap(err, "Failed to read input file")
-	}
+	// compressedMDBytes, err := ioutil.ReadAll(file)
+	// if err != nil {
+	// 	return nil, errors.Wrap(err, "Failed to read input file")
+	// }
 
-	buf := bytes.NewBuffer(compressedMDBytes)
-	z, err := gzip.NewReader(buf)
-	if err != nil {
-		return nil, errors.Wrap(err, "failed to create gzip reader to decompress response data")
-	}
-	z.Close()
-	mdBytes, err := ioutil.ReadAll(z)
+	// buf := bytes.NewBuffer(compressedMDBytes)
+	// z, err := gzip.NewReader(buf)
+	// if err != nil {
+	// 	return nil, errors.Wrap(err, "failed to create gzip reader to decompress response data")
+	// }
+	// z.Close()
+	// mdBytes, err := ioutil.ReadAll(z)
+	mdBytes, err := ioutil.ReadAll(file)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to decompress response data")
 	}
