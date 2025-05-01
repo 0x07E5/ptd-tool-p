@@ -24,11 +24,10 @@ jobs:
       
     - name: Get dependencies
       run: go mod download
-      
     - name: Build
       run: |
         mkdir -p dist
-        go build -o dist/app.exe -v ./...
+        go build -o dist/app.exe -v .
     
     - name: Test
       run: go test -v ./...
