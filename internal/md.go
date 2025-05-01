@@ -2,7 +2,6 @@ package internal
 
 import (
 	"bytes"
-	"compress/gzip"
 	"crypto/aes"
 	"crypto/cipher"
 	"io/ioutil"
